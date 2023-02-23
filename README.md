@@ -19,4 +19,10 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 - `npm run lint` to run ESLint against your code to find errors.
 - `npm run format` to run Prettier to automatically format your code.
 
+<<<<<<< HEAD
 # https://extraordinary-fox-8f0cf7.netlify.app
+=======
+
+## Changes
+We have made the executive decision that double quotes are king and anyone who thinks otherwise is a heretic.
+>>>>>>> 8b9e87d26a47850404633d44372a9515f9fc0097
