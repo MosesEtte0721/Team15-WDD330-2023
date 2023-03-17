@@ -202,7 +202,97 @@ button {
   grid-column: 3;
 }
 
+
+.cart-div_wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  column-gap: 80%;
+}
+
+div.increase-decrease {
+  margin: 10px;
+  display: flex;
+  flex-flow: column;
+
+}
+.product-details {
+  margin: 10px;
+}
+button.increase, button.decrease{
+  max-width: 70px;
+  font-size: 4vh;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+}
+
+
+.value {
+  font-size: 2vh;
+  max-width: 129px;
+  padding: 5px;
+  text-align: left;
+  margin: 0;
+}
+
+button.remove {
+  display: flex;
+  text-align: center;
+  background-color: #b80e2a;
+  color: #ffffff;
+  justify-content: flex-end;
+
+}
+
+div.cart-total_cost > p {
+  text-align: left;
+  font-size: 6vh;
+  padding: 0;
+  margin: 0;
+}
+.color-span_red {
+  color: red;
+}
+.bold {
+  font-weight: bold;
+}
+
+.cart-indicator {
+  background-color: red;
+  max-width: 100px;
+  max-height: 100px;
+  z-index: 1;
+  color: white;
+  margin: 0;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+
 @media screen and (min-width: 500px) {
+
+  div.increase-decrease {
+    display: flex;
+    flex-flow: row;
+  
+  }
+
+  input.value {
+    max-width: 145px;
+    font-size: 4vh;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+  }
+  button.increase, button.decrease{
+    max-width: 50px;
+    font-size: 4vh;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+  }
+
   body {
     max-width: 1080px;
     margin: auto;
