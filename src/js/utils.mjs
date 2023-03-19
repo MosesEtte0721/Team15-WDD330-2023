@@ -28,3 +28,17 @@ export function getParams(param){
   const getData = data.get(param)
   return getData;
 }
+
+export function renderListWithTemplate(templateFn, 
+    parentElement, 
+    list, 
+    position = "afterbegin", 
+    clear = false) {
+      const htmlStrings = list.map((templateFn));
+      // if clear is true, the content of the parent needs to be cleared
+      if(clear) {
+        parentElement.innerHTML = "";
+      } else {
+        parentElement.insertAdjacentHTML(position, htmlStrings.join(""))
+      }
+    }

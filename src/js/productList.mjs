@@ -1,18 +1,20 @@
+import {renderListWithTemplate} from "./utils.mjs"
 function productCartTemplate(product) {
-    const productTemplate = ` 
-        <li class="product-card">
-            <a href="product_pages/?product=880RR">
-            <img
-                src="${product.Image}"
-                alt="${product.Name}"
-            />
-            <h3 class="card__brand">${product.Brand.Name}</h3>
-            <h2 class="card__name">${product.Name}</h2>
-            <p class="product-card__price">$${product.Price}</p></a
-            >
-        </li>
+        let discount = (product.FinalPrice / product.SuggestedRetailPrice) * 100
+        const productTemplate = ` 
+            <li class="product-card">
+                <a href="product_pages/?product=${product.Id}">
+                <img
+                    src="${product.Image}"
+                    alt="${product.Name}"
+                />
+                <h3 class="card__brand">${product.Brand.Name}</h3>
+                <h2 class="card__name">${product.Name}</h2>
+                <h2 class="product-card__discount">Discount: (${discount.toFixed()}% off sales)</h2>
+                <p class="product-card__price">$${product.FinalPrice}</p></a>
+            </li>
     `
-    return productTemplate();
+    return productTemplate;
 }
 
 export default class ProductListing{
@@ -24,6 +26,18 @@ export default class ProductListing{
     }
 
     async init() {
-        this.dataSource = this.dataSource.getData();
+        const listOfProducts = await this.dataSource.getData();
+
+        this.renderList(listOfProducts)
     }
+
+
+    renderList(list) {
+        // renderListWithTemplate(productCartTemplate, this.listElement, list)
+        // let  = document.querySelector(".product-list");
+        let htmlString = list.map((items) => productCartTemplate(items))
+        this.listElement.insertAdjacentHTML("afterbegin", htmlString.join(""))
+    }
+
+    
 }
