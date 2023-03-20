@@ -49,13 +49,8 @@ export default class ProductDetails {
             setLocalStorage("so-cart", cartItems);
 
             this.calculate()
-            let hide = document.querySelector(".quantity");
-            if (cartItems) {
-                let cartTotal = cartItems.map((item)=> item.quantity).reduce((first, sec)=> first + sec);
-
-                hide.style.display = "inline";
-                hide.innerHTML = cartTotal;
-              }
+      
+            
     }
    
             
