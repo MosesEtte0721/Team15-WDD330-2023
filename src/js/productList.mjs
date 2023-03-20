@@ -35,7 +35,8 @@ export default class ProductListing{
     renderList(list) {
         // renderListWithTemplate(productCartTemplate, this.listElement, list)
         // let  = document.querySelector(".product-list");
-        let htmlString = list.map((items) => productCartTemplate(items))
+        let htmlString = list.map((items) => productCartTemplate(items)).slice(0, 4)
+        
         this.listElement.insertAdjacentHTML("afterbegin", htmlString.join(""))
     }
 

@@ -208,6 +208,12 @@ button {
 .cart-footer > p {
   font-size: 40px;
   font-weight: bold;
+  gap: 10px;
+}
+
+.product-listing{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr))
 }
 span.quantity {
   display: none;
