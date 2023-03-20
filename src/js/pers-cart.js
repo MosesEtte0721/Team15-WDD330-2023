@@ -1,15 +1,14 @@
-import {fetchLocalStorage} from "./pers-utils.mjs";
+import { fetchLocalStorage } from "./pers-utils.mjs";
 
 function displayPage() {
-    let getStorage = fetchLocalStorage("personal");
-    let convert = new Array(getStorage);
-    let map = convert.map((item) => renderHtml(item));
-    document.querySelector("#render-get").innerHTML = map.join(" ");
+  let getStorage = fetchLocalStorage("personal");
+  let convert = new Array(getStorage);
+  let map = convert.map((item) => renderHtml(item));
+  document.querySelector("#render-get").innerHTML = map.join(" ");
 }
 
-
 function renderHtml(obj) {
-    let template = `<li class="cart-card divider">
+  let template = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
       src="${obj.Image}"
@@ -23,5 +22,5 @@ function renderHtml(obj) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${obj.FinalPrice}</p>
 </li>`;
-return template;
+  return template;
 }

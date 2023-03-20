@@ -9,12 +9,11 @@ let productData = new ProductData("tents");
 // let PersonalUtil = new PersonalUtils(productData);
 
 function addcart(value) {
-    setLocalStorage("personal", value);
+  setLocalStorage("personal", value);
 }
 
 async function final(match) {
-    let val = await productData.findProductById(match.target.dataset.id);
-    addcart(val);
+  let val = await productData.findProductById(match.target.dataset.id);
+  addcart(val);
 }
-document.getDocumentById("cart-page").addEventListener("click", final)
-
+document.getDocumentById("cart-page").addEventListener("click", final);

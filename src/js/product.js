@@ -1,16 +1,17 @@
-import {getParams} from "./utils.mjs";
+import { getParams, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
+
+// dynamically loads headers and footers 
+loadHeaderFooter();
 
 const dataSource = new ProductData("tents");
 // console.log(dataSource);
 
-const productId =  getParams("product");
+const productId = getParams("product");
 // console.log(productId);
 
-
-
-const product = new ProductDetails(productId, dataSource)
+const product = new ProductDetails(productId, dataSource);
 product.init();
 
 // function addProductToCart(product) {
@@ -26,4 +27,3 @@ product.init();
 // document
 //   .getElementById("addToCart")
 //   .addEventListener("click", addToCartHandler);
-
