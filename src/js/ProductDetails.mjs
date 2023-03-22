@@ -36,19 +36,21 @@ export default class ProductDetails {
     addToCart() {
         
        let items = this.array.find((item) => item.Id === this.product.Id);
-        let double = cartItems.find((item) => item.Id === this.product.Id);
+        // let double = cartItems.find((item) => item.Id === this.product.Id);
         //  insert the item to the cart if not already in the cart
-        if(double){
-            double.quantity += 1;
-        } else {
-            //create the property to track the quantity of items added
-                items.quantity = 1;
-                // push the item to the cart if not already in the cart
-                cartItems.push(items);
-            }        
+        // if(double){
+        //     double.quantity += 1;
+        // } else {
+            
+        //         // push the item to the cart if not already in the cart
+                
+        //         //create the property to track the quantity of items added
+        //         // items.quantity = 1;
+        //     }       
+            cartItems.push(items); 
             setLocalStorage("so-cart", cartItems);
 
-            this.calculate()
+            // this.calculate()
       
             
     }
@@ -87,7 +89,7 @@ export default class ProductDetails {
 
     calculate(){
         let cartTotal = cartItems.map((item)=> item.quantity).reduce((first, sec)=> first + sec);
-        console.log(cartTotal)
+        // console.log(cartTotal)
         let cartIndicator = document.querySelector(".cart-indicator");
         cartIndicator.innerHTML = cartTotal;
 
@@ -106,7 +108,7 @@ function productDetailsTemplate(product) {
 
     <h2 class="divider">${product.NameWithoutBrand}</h2>
 
-    <img class="divider" src="${product.Image}"  alt="${product.Name}"/>
+    <img class="divider" src="${product.Images.PrimaryLarge}"  alt="${product.Name}"/>
 
     <p class="product-card__discount">Discount: (${discount.toFixed()}% off sales)</p>
 
