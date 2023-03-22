@@ -282,6 +282,53 @@ div.cart-total_cost > p {
   border-radius: 50%;
 }
 
+.form-home {
+  display: flex;
+  flex-flow: wrap column;
+  max-width: 25%;
+  justify-content: center;
+  /* float: right; */
+
+}
+.mission-wrapper {
+  display: flex;
+  flex-flow: wrap column;
+}
+
+.form-home button {
+  float: left;
+  margin: 5px;
+  border-radius: 10%;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  margin:0;
+}
+
+.form-home label {
+  margin-top: 5px;
+  padding: 5px;
+  display: block;
+}
+ .products li {
+  border: 2px goldenrod solid;
+  margin: 10px;
+  padding: 10px;
+}
+input[type=text]:focus:invalid, input[type=email]:focus:invalid{
+  background-color: rgb(253, 19, 19);
+  color: white;
+}
+
+input[type=text]:focus:valid, input[type=email]:focus:valid {
+  content: "<>";
+  background-color: green;
+  color: white;
+  
+}
+
 @media screen and (min-width: 500px) {
   div.increase-decrease {
     display: flex;
