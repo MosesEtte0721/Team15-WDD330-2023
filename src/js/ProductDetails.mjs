@@ -36,16 +36,7 @@ export default class ProductDetails {
     addToCart() {
         
        let items = this.array.find((item) => item.Id === this.product.Id);
-        // let double = cartItems.find((item) => item.Id === this.product.Id);
-        //  insert the item to the cart if not already in the cart
-        // if(double){
-        //     double.quantity += 1;
-        // } else {
-            
-        //         // push the item to the cart if not already in the cart
-                
-        //         //create the property to track the quantity of items added
-        //         // items.quantity = 1;
+        console.log(items)
         //     }       
             cartItems.push(items); 
             setLocalStorage("so-cart", cartItems);

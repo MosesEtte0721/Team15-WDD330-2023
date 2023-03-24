@@ -304,7 +304,9 @@ div.cart-total_cost > p {
 input {
   padding: 10px;
   font-size: 18px;
+  font-weight: normal;
   margin:0;
+  padding: 10px;
 }
 
 .form-home label {
@@ -317,16 +319,45 @@ input {
   margin: 10px;
   padding: 10px;
 }
-input[type=text]:focus:invalid, input[type=email]:focus:invalid{
-  background-color: rgb(253, 19, 19);
-  color: white;
+
+label::after, .required::before{
+  content: "*";
+  font-size: 30px;
+  color: red;
+  margin: 0;
+}
+::placeholder {
+  color: #a4b8c4;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-input[type=text]:focus:valid, input[type=email]:focus:valid {
-  content: "<>";
-  background-color: green;
-  color: white;
-  
+label {
+  margin: 2px;
+}
+
+fieldset {
+  margin-top: 50px;
+  padding: 10px;
+  border-color: gray;
+ 
+ 
+}
+legend {
+  color: goldenrod;
+  font-weight: bold;
+  text-align: center;
+}
+
+label {
+  display: flex;
+  flex-flow: wrap column;
+  padding: 0;
+}
+button a {
+  color: #fff;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 500px) {

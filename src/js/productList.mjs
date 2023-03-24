@@ -30,7 +30,7 @@ export default class ProductListing{
 
         this.renderList(listOfProducts)
 
-        document.querySelector(".title").innerHTML = this.category
+        // document.querySelector(".title").innerHTML = this.category
     }
 
 
