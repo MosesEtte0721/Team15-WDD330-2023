@@ -1,5 +1,5 @@
 import ProductListing from "./productList.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import { loadHeaderFooter, getParams } from "./utils.mjs";
 
 
@@ -8,7 +8,7 @@ loadHeaderFooter();
 let params =  getParams("category");
 
 
-let productData = new ProductData();
+let productData = new ExternalServices();
 
 let element = document.querySelector(".product-list");
 

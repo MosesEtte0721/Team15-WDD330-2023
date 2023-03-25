@@ -11,14 +11,13 @@ export default class ExternalServices {
   constructor(category) {
     
   }
+  
   async getData(category) {
-    const res = await fetch(baseURL + `products/search/${category}`)
-    // return fetch(this.path)
-    const data = await convertToJson(res)
-      // .then(convertToJson)
-    return data.Result
-      // .then((data) => data);
+    const response = await fetch(baseURL + `products/search/${category}`);
+    const data = await convertToJson(response);
+    return data.Result;
   }
+
   async findProductById(id) {
     const products = await fetch(baseURL + `product/${id}`);
     const data = await convertToJson(products);

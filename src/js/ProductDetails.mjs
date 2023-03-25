@@ -1,7 +1,7 @@
 import {setLocalStorage, getLocalStorage} from "./utils.mjs";
 
 // const setStorage = 
-let cartItems = getLocalStorage("so-cart") || []
+
 let totalCart = getLocalStorage("total-cart") || []
 
 export default class ProductDetails {
@@ -9,7 +9,7 @@ export default class ProductDetails {
         this.productId = productId
         this.product = {}
         this.dataSource = dataSource
-        this.array = []
+       
         
     }
 
@@ -19,7 +19,8 @@ export default class ProductDetails {
         // console.log(this.product)
 
         // get the products array
-        this.array = await this.dataSource.getData();
+        // this.array = await this.dataSource.getData();
+        // console.log(this.array)
        
 
         // Displays a generic page for the details of a product
@@ -34,14 +35,23 @@ export default class ProductDetails {
    
 
     addToCart() {
-        
-       let items = this.array.find((item) => item.Id === this.product.Id);
-        console.log(items)
-        //     }       
-            cartItems.push(items); 
+        let cartItems = getLocalStorage("so-cart") || [];
+        let items = cartItems.find((x) =>  x.Id === this.product.Id)
+   
+            if(items) {
+                console.log("this item exists in the cart already")
+                items.Quantity += 1;
+                items.TotalCost += items.FinalPrice;
+                
+            } else {
+                
+                cartItems.push(this.product);
+                this.product.Quantity = 1
+                this.product.TotalCost = this.product.FinalPrice * this.product.Quantity;
+                 console.log(this.product.TotalCost)
+                
+            }
             setLocalStorage("so-cart", cartItems);
-
-            // this.calculate()
       
             
     }
@@ -54,31 +64,33 @@ export default class ProductDetails {
         element.insertAdjacentHTML("afterbegin", productDetailsTemplate(this.product))
     }
 
-     decreament() {
-        let val = document.querySelector(".value");
-        let items = this.array.find((item) => item.Id === this.product.Id);
-       let double = cartItems.find((item) => item.Id === this.product.Id);
-       if(double) {
-        double.quantity -= 1;
-        val.value -= 1
-       } else if(double === 0) return;
-    }
+    //  decreament() {
+    //     let val = document.querySelector(".value");
+    //     let items = this.array.find((item) => item.Id === this.product.Id);
+    //    let double = cartItems.find((item) => item.Id === this.product.Id);
+    //    if(double) {
+    //     double.quantity -= 1;
+    //     val.value -= 1
+    //    } else if(double === 0) return;
+    // }
      
 
-    increment() {
-        let val = document.querySelector(".value");
-        let items = this.array.find((item) => item.Id === this.product.Id);
-        let double = cartItems.find((item) => item.Id === this.product.Id);
-        if(double) {
-            double.quantity += 1;
-            val.value += 1
-        } else {
-            cartItems.push(items)
-           }
+    // increment() {
+    //     let val = document.querySelector(".value");
+    //     let items = this.array.find((item) => item.Id === this.product.Id);
+    //     let double = cartItems.find((item) => item.Id === this.product.Id);
+    //     if(double) {
+    //         double.quantity += 1;
+    //         val.value += 1
+    //     } else {
+    //         cartItems.push(items)
+    //        }
 
-    }
+    // }
 
     calculate(){
+        let cartItems = getLocalStorage("so-cart") || [];
+
         let cartTotal = cartItems.map((item)=> item.quantity).reduce((first, sec)=> first + sec);
         // console.log(cartTotal)
         let cartIndicator = document.querySelector(".cart-indicator");
