@@ -78,10 +78,10 @@ function cartItemTemplate(obj) {
     <h2 class="card__name">${obj.Name}</h2>
   </a>
   <p class="cart-card__color"><span class="color-span_red bold"> Color:</span> ${obj.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity"><span class="price-span_red bold">Price:</span>${obj.FinalPrice} </p><br>
-  <p class="cart-card__quantity"><span class="color-span_red bold"> qty:</span>${obj.Quantity} </p>
-  <p class="cart-card__price"><span class="color-span_red bold">Price:</span>Total: $${obj.TotalCost}</p>
-  <div class="cart-div_wrapper">
+  <p class="cart-card__price"><span class="color-span_red bold">Price:</span> ${obj.FinalPrice} </p>
+  <p class="cart-card__quantity"><span class="color-span_red bold"> qty:</span> ${obj.Quantity} </p>
+  <p class="cart-card__totalCost"><span class="color-span_red bold">Total:</span> $${obj.TotalCost}</p>
+  
   <div class="increase-decrease">
     <button   class="decrease"  >-</button>
     <input  type="tex" id="value" value="${obj.Quantity}"  >
