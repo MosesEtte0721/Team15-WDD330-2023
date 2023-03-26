@@ -310,6 +310,9 @@ div.cart-total_cost > p {
   border-radius: 10%;
 }
 
+form > ul li {
+  list-style: none;
+}
 input {
   padding: 10px;
   font-size: 18px;

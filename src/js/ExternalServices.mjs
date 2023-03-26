@@ -1,9 +1,10 @@
 const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
 function convertToJson(res) {
+  res.json();
   if (res.ok) {
     return res.json();
   } else {
-    throw new Error("Bad Response");
+    throw {name: "servicesError", message: "jsonResponse"};
   }
 }
 
@@ -11,7 +12,7 @@ export default class ExternalServices {
   constructor(category) {
     
   }
-  
+
   async getData(category) {
     const response = await fetch(baseURL + `products/search/${category}`);
     const data = await convertToJson(response);

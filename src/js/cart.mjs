@@ -25,27 +25,16 @@ export default class ShoppingCart{
       
         if (cartItems) {
           let hide = document.querySelector(".quantity");
-          let cartTotal = cartItems.map((item)=> item.quantity).reduce((first, sec)=> first + sec);
+          let cartTotal = cartItems.map((item)=> item.TotalCost).reduce((first, sec)=> first + sec);
           hide.style.display = "inline";
-          hide.innerHTML = cartTotal;
+          hide.innerHTML = cartTotal.toFixed(2);
         }
       }
 
-      // increment() {
-      //   
-      //   let doc = document.querySelector("#quantity").target.value;
-      //  let cartTotal = cartItem.map((item)=> item.Quantity)
-      //  let totalItems = cartTotal.reduce((first, sec)=> first + sec)
-      //   if(cartTotal){
-      //     cartTotal += 1
-      //   doc.innerHTML = cartTotal
-      //   cartIndicator.innerHTML = totalItems;
-      //   console.log(cartTotal);
-      //   setLocalStorage("so-cart", cartItem)
-      //  }
+      
        
         
-      // }
+     
 }
 
 function increment() {
