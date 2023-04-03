@@ -105,7 +105,8 @@ export default class ProductDetails {
 
 
 function productDetailsTemplate(product) {
-    let discount = (product.FinalPrice / product.SuggestedRetailPrice) * 100
+    let discount = (product.FinalPrice / product.SuggestedRetailPrice) * 100;
+    let discountedCost = discount * product.FinalPrice;
     
     const template = `<h3>${product.Brand["Name"]}</h3>
 
@@ -113,7 +114,7 @@ function productDetailsTemplate(product) {
 
     <img class="divider" src="${product.Images.PrimaryLarge}"  alt="${product.Name}"/>
 
-    <p class="product-card__discount">Discount: (${discount.toFixed()}% off sales)</p>
+    <p class="product-card__discount">Discount: (${discount.toFixed()} % off sales)</p>
 
     <p class="product-card__price">Price: $${product.FinalPrice}</p>
 

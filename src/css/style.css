@@ -201,6 +201,22 @@ button {
   grid-row: 2;
   grid-column: 3;
 }
+
+.p-bold{
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+}
+.display {
+  display: block;
+}
+.modal-class {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
 .cart-card__totalCost {
   grid-row: 3;
   grid-column: 3;
@@ -211,9 +227,7 @@ button {
   grid-column: 2;
 }
 
-.cart-footer {
-  /* display: none; */
-}
+
 .cart-footer > p {
   font-size: 40px;
   font-weight: bold;

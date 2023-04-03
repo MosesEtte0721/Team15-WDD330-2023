@@ -1,11 +1,10 @@
 import { getLocalStorage, setLocalStorage, loadHeaderFooter } from "./utils.mjs";
-// import ProductData from "./ProductData.mjs"
-// import {getParams} from "./utils.mjs"
-// import ProductDetails from "./productList.mjs"
+
 
 loadHeaderFooter();
 
-let cartItem = getLocalStorage("so-cart") || [];
+let cartItems = getLocalStorage("so-cart") || [];
+let loopCart  = cartItems.map((items) => items);
 // let totalCart = getLocalStorage("total-cart") || [];
 
 export default class ShoppingCart{
@@ -15,20 +14,32 @@ export default class ShoppingCart{
     }
 
     renderCartContents() {
-        const cartItems = getLocalStorage(this.key);
         const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-        document.querySelector(this.parentElement).innerHTML = htmlItems.join("");
-        
-      
+        if(htmlItems.length === 0) {
+          let cartFooter = document.querySelector(".cart-footer");
+          let cartTotal = document.querySelector(".cart-total");
+          let totalPrice = document.querySelector(".quantity");
+          // let cartButton = document.querySelector(".button");
+          // cartButton.style.display = "none";
+          cartTotal.style.display = "none";
+          totalPrice.style.display = "none";
+          let text = "<h5>Your Cart is Empty</h5>";
+          cartFooter.innerHTML = text;
+          return;
+        }
+ 
+          document.querySelector(this.parentElement).innerHTML = htmlItems.join("");
         document.querySelector(".increase").addEventListener("click", increment);
-        // document.querySelector(".decrease").addEventListener("click", decrement);
-      
-        if (cartItems) {
+        document.querySelector(".decrease").addEventListener("click", decrement);
+       
+        if (Array.isArray(cartItems)) {
           let hide = document.querySelector(".quantity");
           let cartTotal = cartItems.map((item)=> item.TotalCost).reduce((first, sec)=> first + sec);
           hide.style.display = "inline";
+          hide.style.color = "green";
           hide.innerHTML = cartTotal.toFixed(2);
-        }
+        } 
+         
       }
 
       
@@ -38,17 +49,33 @@ export default class ShoppingCart{
 }
 
 function increment() {
-  let cartItems = getLocalStorage("so-cart") || []
+ 
+  // let cartItems = getLocalStorage("so-cart") || []
   let cartIndicator = document.querySelector(".cart-indicator");
   console.log("increment")
-  let inputValue = document.querySelector("#value");
-  inputValue.innerHTML = inputValue.value++
-  // cartIndicator.innerHTML = inputValue
-  let quantity = cartItems.filter((item) => item.Quantity);
-  console.log(quantity)
   
+  let inputValue = document.querySelectorAll(".color-span_red");
+  // let value = document.querySelector(".value").value;
+  for(let i = 0; i < inputValue.length; i++){
+      inputValue[i].addEventListner("click", increaseNum())
+  }
+  
+  
+  setLocalStorage("so-cart", cartItems);
 }
 
+function increaseNum() {
+  
+  const quantityInput = document.querySelector(".value")
+  let itemId  = this.Id;
+  console.log(itemId);
+  let loopArr = cartItems.map((items) => items.Id == itemId.Id);
+   if(loopArr !== 0 && !isNaN(loopArr.Quantity)) {
+    const met = cartItems[loopArr].Quantity = quantityInput.value;
+    quantityInput.innerHTML = met;
+   }
+   
+}
 
 function decrement() {
   console.log("decrement")
@@ -73,10 +100,10 @@ function cartItemTemplate(obj) {
   
   <div class="increase-decrease">
     <button   class="decrease"  >-</button>
-    <input  type="tex" id="value" value="${obj.Quantity}"  >
+    <input  type="tex" class="value" value="${obj.Quantity}"  >
     <button   class="increase" > + </button>
   </div>
-   <button type="submit" class="remove">Remove</button>
+   <button type="text" class="remove">Remove</button>
   
 
 </li> `;
