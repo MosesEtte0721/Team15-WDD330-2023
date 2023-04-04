@@ -2,7 +2,7 @@ import { getParams, loadHeaderFooter } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
-// dynamically loads headers and footers 
+// dynamically loads headers and footers
 loadHeaderFooter();
 
 const dataSource = new ExternalServices("tents");

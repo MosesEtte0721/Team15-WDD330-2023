@@ -202,7 +202,7 @@ button {
   grid-column: 3;
 }
 
-.p-bold{
+.p-bold {
   font-weight: bold;
 }
 
@@ -227,16 +227,15 @@ button {
   grid-column: 2;
 }
 
-
 .cart-footer > p {
   font-size: 40px;
   font-weight: bold;
   gap: 10px;
 }
 
-.product-listing{
+.product-listing {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr))
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
 }
 span.quantity {
   display: none;
@@ -311,7 +310,6 @@ div.cart-total_cost > p {
   max-width: 25%;
   justify-content: center;
   /* float: right; */
-
 }
 .mission-wrapper {
   display: flex;
@@ -331,7 +329,7 @@ input {
   padding: 10px;
   font-size: 18px;
   font-weight: normal;
-  margin:0;
+  margin: 0;
   padding: 10px;
 }
 
@@ -340,13 +338,14 @@ input {
   padding: 5px;
   display: block;
 }
- .products li {
+.products li {
   border: 2px goldenrod solid;
   margin: 10px;
   padding: 10px;
 }
 
-label::after, .required::before{
+label::after,
+.required::before {
   content: "*";
   font-size: 30px;
   color: red;
@@ -367,8 +366,6 @@ fieldset {
   margin-top: 50px;
   padding: 10px;
   border-color: gray;
- 
- 
 }
 legend {
   color: goldenrod;

@@ -2,11 +2,9 @@ import ProductListing from "./productList.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 import { loadHeaderFooter, getParams } from "./utils.mjs";
 
-
 loadHeaderFooter();
 
-let params =  getParams("category");
-
+let params = getParams("category");
 
 let productData = new ExternalServices();
 
