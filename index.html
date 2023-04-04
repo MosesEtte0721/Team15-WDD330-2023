@@ -20,7 +20,7 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 - `npm run format` to run Prettier to automatically format your code.
 
 <<<<<<< HEAD
-# https://extraordinary-fox-8f0cf7.netlify.app
+# https://ette.netlify.app
 =======
 
 ## Changes
