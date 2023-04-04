@@ -1,4 +1,4 @@
-let mobileMenu = document.querySelector(".menu-button");
+let mobileMenu = document.querySelector(".menu__wrapper");
 mobileMenu.addEventListener("click", togle);
 
 // hides and shows the menu on a mobile screen

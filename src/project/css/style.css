@@ -1,7 +1,41 @@
-@import url();
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,700;1,500&family=Hahmlet:wght@400;500;600&family=Lexend+Deca:wght@400;500;600&family=Lora:ital,wght@0,400;1,400;1,500&family=Markazi+Text:wght@400;500;600&family=Roboto+Flex:wght@400;500;600&family=Sora:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap");
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Fira Sans", "Roberto Flex", "Sora", "Lexend Deca", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: wrap column;
+  background-color: #acc8e5;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.main-message {
+  margin: 10px;
+}
+
+header {
+  position: relative;
+  background-color: gray;
+  height: 200px;
+  display: flex;
+  justify-content: end;
+  background-image: url("/public/images/banner.jpg");
+  margin-bottom: 50px;
+}
+
+header,
+footer {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 a {
@@ -16,17 +50,10 @@ img {
   max-width: 100%;
 }
 
-p {
-  font-family: Serif Pro, Lora, Markazi Text, Hahmlet, serif;
-  font-size: 18px;
-}
-
-header {
-  position: relative;
-  display: flex;
-  justify-content: end;
-  background-image: url("/public/images/banner.jpg");
-  margin-bottom: 50px;
+p,
+a {
+  font-family: "Serif Pro", "Lora", "Markazi Text", "Hahmlet", serif;
+  font-size: 16px;
 }
 
 header .menu-button {
@@ -47,22 +74,32 @@ header .navi {
 header .navigate {
   display: block;
   background-color: red;
-
   position: relative;
   top: 50px;
-  left: 60px;
+  left: 50px;
+  animation-name: slideMenu;
+  animation-duration: 400ms;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
-@keyframes displayProduct {
+
+@keyframes slideMenu {
   from {
-    border: 1px solid cyan;
-    opacity: 1;
+    border: 4px green solid;
+    transform: translateY(-55px);
+    opacity: 0.5;
     font-size: 16px;
   }
   to {
-    border: 2px solid goldenrod;
-    opacity: 2;
-    font-size: 20px;
+    border: 4px solid goldenrod;
+    opacity: 4;
+    font-size: 30px;
   }
+}
+
+header .nav-ul {
+  width: 100%;
 }
 
 header nav li {
@@ -87,18 +124,19 @@ header nav li a {
 }
 
 input[type="search"] {
-    position: relative;
+  position: relative;
   margin: 0;
   padding: 5px;
   border-radius: 10px;
   position: relative;
-  max-width: 300px;
   font-size: 20px;
+  flex: 1 1 auto;
+  flex-flow: wrap;
+  max-width: 200px;
 }
 
 button[type="button"] {
   margin: 0;
-
   padding: 5px;
   border-radius: 10px;
   background-color: cyan;
@@ -114,7 +152,9 @@ button[type="button"] {
 
 .input--search__button {
   display: flex;
-  flex-flow: wrap column;
+  flex: 1 1 auto;
+  flex-flow: wrap;
+  /* justify-content:; */
 }
 
 .products {
@@ -122,16 +162,17 @@ button[type="button"] {
 }
 
 .grid--display {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
+  display: flex;
+  flex-flow: wrap row;
 }
 
 .products ul li {
   border: goldenrod solid 2px;
   max-width: 200px;
   display: block;
+  margin: 10px;
+  padding: 10px;
+  max-height: 800px;
 }
 
 .footer-div {
@@ -140,16 +181,17 @@ button[type="button"] {
 }
 
 .menu__wrapper {
-    margin: 10px;
+  position: relative;
+  top: 0;
+  margin: 10px;
+  max-height: 40px;
 }
 .animate__bar {
-    background-color: red;
-    color: gold;
-    height: 10px;
-    margin-top: 5px;
-    width: 80px;
-    display: block;
-    border-radius: 10px;
-
+  background-color: red;
+  color: gold;
+  height: 8px;
+  margin-top: 5px;
+  width: 40px;
+  display: block;
+  border-radius: 10px;
 }
-

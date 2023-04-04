@@ -208,6 +208,22 @@ button {
 
 .modal {
   display: none;
+  position: fixed;
+  width: 300px;
+  height: 500px;
+  top: 20%;
+  bottom: 20%;
+  left: 20%;
+  right: 20%;
+  background-color: red;
+  padding: 1rem;
+}
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  cursor: pointer;
 }
 .display {
   display: block;
