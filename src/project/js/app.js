@@ -1,14 +1,26 @@
+// selects the menu__wrapper
 let mobileMenu = document.querySelector(".menu__wrapper");
-mobileMenu.addEventListener("click", togle);
+mobileMenu.addEventListener("click", slide);
 
+// selects the animate element
+let menuBar = document.querySelector(".animate");
+menuBar.addEventListener("click", changeBg);
+
+// animation on the hamburger menu bars
+function changeBg() {
+  let menu = document.querySelectorAll(".animate__bar");
+  for (let animate of menu) {
+    animate.classList.toggle("menu__bar");
+  }
+}
 // hides and shows the menu on a mobile screen
-function togle() {
+function slide() {
   let navClass = document.querySelector(".navi");
   navClass.classList.toggle("navigate");
 }
 
 let clickButton = document.querySelector("#clickButton");
-
+//
 let cartObj = getStorage("api") || [];
 
 const options = {
@@ -33,6 +45,8 @@ async function process() {
   // loops through the JSON file and then displays the data obtained in the html
   data.data.products.map((p) => {
     selector(".display_products", htmlContainer(p));
+    cartObj.push(data.data.products.product_photo, 
+      data.data.products.product_url, data.data.products.product_price);
     cartObj.push(data);
   });
   // stores the result to the local storage
@@ -70,6 +84,7 @@ clickButton.addEventListener("click", () => {
   console.log(process());
 });
 
+// converts data to Json file
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
