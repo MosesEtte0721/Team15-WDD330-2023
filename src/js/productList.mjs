@@ -78,9 +78,29 @@ export default class ProductListing {
 
         closeModalBtn.forEach(element => {
         element.addEventListener("click", (e) => {
-            e.target.parentElement.style.display = "none";
+            e.target.parentElement.classList.toggle("display");
+            // element.classList.;
         })
     })
+
+
+    // for(let button of closeModalBtn) {
+    //     // listens to each button
+    //     button.addEventListener("click", (e)=> {
+            
+    //          modal.forEach(element => {
+    //             if(e.target.dataset.id == element.dataset.id) {
+    //                 element.classList.toggle("d");
+    //             }
+                
+    //         }
+             
+    //         )
+
+
+            
+    //     })
+    // }
         // buttons.forEach((button) => {
         //     button.addEventListener("click", (e) => {
         //         let buttonsNew = [...buttons];
