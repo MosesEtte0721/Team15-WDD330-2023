@@ -29,8 +29,8 @@ export default class ShoppingCart{
         }
  
           document.querySelector(this.parentElement).innerHTML = htmlItems.join("");
-        document.querySelector(".increase").addEventListener("click", increment);
-        document.querySelector(".decrease").addEventListener("click", decrement);
+        // document.querySelector(".increase").addEventListener("click", increment);
+        // document.querySelector(".decrease").addEventListener("click", decrement);
        
         if (Array.isArray(cartItems)) {
           let hide = document.querySelector(".quantity");
@@ -51,15 +51,24 @@ export default class ShoppingCart{
 function increment() {
  
   // let cartItems = getLocalStorage("so-cart") || []
-  let cartIndicator = document.querySelector(".cart-indicator");
-  console.log("increment")
+  let increaseBtn = document.querySelectorAll(".increase");
+  let qty = document.querySelectorAll(".value").value;
+  let check = document.querySelectorAll(".increase-decrease")
   
-  let inputValue = document.querySelectorAll(".color-span_red");
-  // let value = document.querySelector(".value").value;
-  for(let i = 0; i < inputValue.length; i++){
-      inputValue[i].addEventListner("click", increaseNum())
+  // let decreaseBtn = document.querySelectorAll(".decrease");
+  // let value = document.querySelector(".value").value; increase-decrease
+
+  for(let button of increaseBtn) {
+    button.addEventListener("click", (e)=> {
+      qty.forEach((element) => {
+        console.log(element)
+        // if(e.target.dataset.id == element.dataset.id) {
+        //   qty += 1
+        // }
+      })
+    })
   }
-  
+ 
   
   setLocalStorage("so-cart", cartItems);
 }
@@ -98,10 +107,10 @@ function cartItemTemplate(obj) {
   <p class="cart-card__quantity"><span class="color-span_red bold"> qty:</span> ${obj.Quantity} </p>
   <p class="cart-card__totalCost"><span class="color-span_red bold">Total:</span> $${obj.TotalCost}</p>
   
-  <div class="increase-decrease">
+  <div class="increase-decrease" >
     <button   class="decrease"  >-</button>
-    <input  type="tex" class="value" value="${obj.Quantity}"  >
-    <button   class="increase" > + </button>
+    <input  type="text" id="value" value="${obj.Quantity}" data-id="${obj.Id}"  >
+    <button   class="increase" data-id='${obj.Id}' > + </button>
   </div>
    <button type="text" class="remove">Remove</button>
   
