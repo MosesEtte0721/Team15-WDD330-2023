@@ -48,8 +48,8 @@ async function process() {
   // loops through the JSON file and then displays the data obtained in the html
   data.data.products.map((p) => {
     selector(".display_products", htmlContainer(p));
-    cartObj.push(data.data.products.product_photo, 
-      data.data.products.product_url, data.data.products.product_price);
+    // cartObj.push(data.data.products.product_photo, 
+    //   data.data.products.product_url, data.data.products.product_price);
     cartObj.push(data);
   });
   // stores the result to the local storage
