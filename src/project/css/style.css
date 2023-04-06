@@ -229,7 +229,7 @@ button[type="button"]:active {
   text-align: center;
 }
 
-.menu__wrapper {
+.menu--animate__wrapper {
   position: absolute;
   top: -1%;
   left: 3%;
@@ -261,7 +261,7 @@ button[type="button"]:active {
     flex-flow: wrap row;
   }
 
-  .menu__wrapper {
+  .menu--animate__wrapper {
     display: none;
   }
 
