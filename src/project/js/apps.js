@@ -50,7 +50,7 @@ async function process() {
     selector(".display_products", htmlContainer(p));
     // cartObj.push(data.data.products.product_photo, 
     //   data.data.products.product_url, data.data.products.product_price);
-    cartObj.push(data);
+    cartObj.push(p);
   });
   // stores the result to the local storage
   setStorage("api", cartObj);
