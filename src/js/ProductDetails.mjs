@@ -91,9 +91,9 @@ export default class ProductDetails {
     calculate(){
         let cartItems = getLocalStorage("so-cart") || [];
 
-        let cartTotal = cartItems.map((item)=> item.quantity).reduce((first, sec)=> first + sec);
+        let cartTotal = cartItems.map((item)=> item.Quantity).reduce((first, sec)=> first + sec);
         // console.log(cartTotal)
-        let cartIndicator = document.querySelector(".cart-indicator");
+        let cartIndicator = document.querySelector(".cart-count");
         cartIndicator.innerHTML = cartTotal;
 
         setLocalStorage("total-cart", totalCart)

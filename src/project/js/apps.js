@@ -1,4 +1,3 @@
-
 // let doc = document.querySelector(".animate")
 
 let mobileMenu = document.querySelector(".menu--animate__wrapper");
@@ -33,8 +32,7 @@ const options = {
   },
 };
 
-
- // gets and process the information obtained from the site
+// gets and process the information obtained from the site
 async function process() {
   // selects the search input
   let mySearch = document.querySelector("#mySearch").value;
@@ -48,7 +46,7 @@ async function process() {
   // loops through the JSON file and then displays the data obtained in the html
   data.data.products.map((p) => {
     selector(".display_products", htmlContainer(p));
-    // cartObj.push(data.data.products.product_photo, 
+    // cartObj.push(data.data.products.product_photo,
     //   data.data.products.product_url, data.data.products.product_price);
     cartObj.push(p);
   });
@@ -57,7 +55,6 @@ async function process() {
   // returns the result (data obtained)
   return data.data.products;
 }
-
 
 // html template to display the products
 function htmlContainer(param) {

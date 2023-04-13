@@ -309,7 +309,10 @@ div.cart-total_cost > p {
   font-weight: bold;
 }
 
-.cart-indicator {
+#cart-count {
+  position: relative;
+  top: 5%;
+  right: 45%;
   background-color: red;
   max-width: 100px;
   max-height: 100px;

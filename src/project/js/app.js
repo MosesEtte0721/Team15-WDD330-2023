@@ -47,7 +47,7 @@ let mobileMenu = document.querySelector(".menu--animate__wrapper");
 //   // loops through the JSON file and then displays the data obtained in the html
 //   data.data.products.map((p) => {
 //     selector(".display_products", htmlContainer(p));
-//     cartObj.push(data.data.products.product_photo, 
+//     cartObj.push(data.data.products.product_photo,
 //       data.data.products.product_url, data.data.products.product_price);
 //     cartObj.push(data);
 //   });
@@ -59,7 +59,7 @@ let mobileMenu = document.querySelector(".menu--animate__wrapper");
 // // html template to display the products
 // function htmlContainer(param) {
 //   return `<li><a href="${param.product_url}">
-//           <img src="${param.product_photo}" alt="${param.product_title} Photo">Desc: 
+//           <img src="${param.product_photo}" alt="${param.product_title} Photo">Desc:
 //           ${param.product_title}</a>
 //           <p class="product_price">Price: $${param.product_price}</p>
 //           <p class="product_rating">Rating: ${param.product_star_rating}</p>
