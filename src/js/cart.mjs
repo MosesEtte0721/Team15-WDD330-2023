@@ -52,11 +52,15 @@ export default class ShoppingCart{
 
       cartIndicator(pro){
         let allQuant = document.querySelector("#cart-count");
-        let quant = pro.map((quani) => quani.Quantity).reduce((x, y) => x + y, 0);
+        let quant = pro.map((quani) => quani.Quantity).reduce((x, y) => y + x, 0);
         allQuant.innerHTML = quant;
       }
 
-      
+      removeProducts(array,  products) {
+        let arr = array.find((x) => x.Id === products.Id);
+        let index = array.indexOf(arr);
+        array.splice(index, 1)
+      }
       
       increment() {
         let cart = getLocalStorage("so-cart") || [];
