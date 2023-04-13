@@ -3,15 +3,19 @@ import { getLocalStorage, setLocalStorage, loadHeaderFooter } from "./utils.mjs"
 
 let cartItems = getLocalStorage("so-cart") || [];
 
+
+
 export default class ShoppingCart{
     constructor(key, parentElement){
         this.key = key;
         this.parentElement = parentElement
+
     }
 
     renderCartContents() {
      
         const htmlItems = cartItems.map((item) => this.cartItemTemplate(item));
+        
         if(htmlItems.length === 0) {
           let cartFooter = document.querySelector(".cart-footer");
           let cartTotal = document.querySelector(".cart-total");
@@ -21,26 +25,38 @@ export default class ShoppingCart{
           let text = "<h5>Your Cart is Empty</h5>";
           cartFooter.innerHTML = text;
           return;
+        } else {
+          document.querySelector(this.parentElement).innerHTML = htmlItems.join("");
         }
  
-          document.querySelector(this.parentElement).innerHTML = htmlItems.join("");
-        // document.querySelector(".increase").addEventListener("click", increment);
-        // document.querySelector(".decrease").addEventListener("click", decrement);
+          
+        
         if (Array.isArray(cartItems)) {
           // select the quantity from DOM
-          let hide = document.querySelector(".quantity");
+          let gTotal = document.querySelector(".quantity");
+          let cartTotal = document.querySelector(".cart-total");
           //  Adds all TotalCost in the object and returns the sum of all all the TotalCost
-          let cartTotal = cartItems.map((item)=> item.TotalCost).reduce((first, sec)=> first + sec);
-          hide.style.display = "inline";
-          hide.style.color = "green";
-          hide.innerHTML = cartTotal.toFixed(2);
+          let totalCost  = cartItems.map((item) => item.TotalCost).reduce((first, sec)=> first + sec);
+          gTotal.style.display = "inline";
+          gTotal.style.color = "green";
+          cartTotal = totalCost.toFixed(2)
+          gTotal.innerHTML = cartTotal;
           
         } 
         this.increment();
         this.decrement();
+        this.cartIndicator(cartItems)
         // this.removeProducts();
         
       }
+
+      cartIndicator(pro){
+        let allQuant = document.querySelector("#cart-count");
+        let quant = pro.map((quani) => quani.Quantity).reduce((x, y) => x + y, 0);
+        allQuant.innerHTML = quant;
+      }
+
+      
       
       increment() {
         let cart = getLocalStorage("so-cart") || [];
